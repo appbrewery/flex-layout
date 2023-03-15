@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Direction</title>
+  <!-- HINT:
+  https://developer.mozilla.org/en-US/docs/Web/CSS/Universal_selectors
+  https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors/Combinators 
+  -->
+  <style>
+    body {
+      font-size: 2rem;
+    }
+
+    .container {
+      color: white;
+      border: 5px solid gold;
+      display: flex;
+      flex-wrap: wrap;
+      height: 80vh;
+
+    }
+
+    .container>* {
+      width: 200px;
+    }
+
+    .red {
+      background-color: #eb4d4b;
+    }
+
+    .orange {
+      background-color: #f0932b;
+    }
+
+    .yellow {
+      background-color: #f6e58d;
+    }
+
+    .green {
+      background-color: #6ab04c;
+    }
+
+    .blue {
+      background-color: #4834d4;
+    }
+
+    .indigo {
+      background-color: #30336b;
+    }
+
+    .purple {
+      background-color: #be2edd;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="red">Red</div>
+    <div class="orange">Orange</div>
+    <div class="yellow">Yellow</div>
+    <div class="green">Green</div>
+    <div class="blue">Blue</div>
+    <div class="indigo">Indigo</div>
+    <div class="purple">Purple</div>
+  </div>
+
+  <div style="display: flex; gap: 2em; justify-content: space-between;">
+    <div>
+      <label for="justify-content">Justify Content:</label>
+      <select id="justify-content">
+        <option value="flex-start">Flex Start</option>
+        <option value="flex-end">Flex End</option>
+        <option value="center">Center</option>
+        <option value="space-between">Space Between</option>
+        <option value="space-around">Space Around</option>
+        <option value="space-evenly">Space Evenly</option>
+      </select>
+    </div>
+    <div>
+      <label for="flex-wrap">Flex Wrap:</label>
+      <select id="flex-wrap">
+        <option value="nowrap">No Wrap</option>
+        <option value="wrap">Wrap</option>
+        <option value="wrap-reverse">Wrap Reverse</option>
+      </select>
+    </div>
+    <div>
+      <label for="align-items">Align Items:</label>
+      <select id="align-items">
+        <option value="flex-start">Flex Start</option>
+        <option value="flex-end">Flex End</option>
+        <option value="center">Center</option>
+        <option value="baseline">Baseline</option>
+        <option value="stretch">Stretch</option>
+      </select>
+    </div>
+    <div>
+      <label for="align-content">Align Content:</label>
+      <select id="align-content">
+        <option value="flex-start">Flex Start</option>
+        <option value="flex-end">Flex End</option>
+        <option value="center">Center</option>
+        <option value="space-between">Space Between</option>
+        <option value="space-around">Space Around</option>
+        <option value="space-evenly">Space Evenly</option>
+        <option value="stretch">Stretch</option>
+      </select>
+    </div>
+  </div>
+</body>
+<script>
+  // Get the flex container
+  const flexContainer = document.querySelector('.container');
+  // Get the dropdowns
+  const justifyContentDropdown = document.getElementById('justify-content');
+  const flexWrapDropdown = document.getElementById('flex-wrap');
+  const alignItemsDropdown = document.getElementById('align-items');
+  const alignContentDropdown = document.getElementById('align-content');
+
+  // Set the initial values
+  flexContainer.style.justifyContent = justifyContentDropdown.value;
+  flexContainer.style.flexWrap = flexWrapDropdown.value;
+  flexContainer.style.alignItems = alignItemsDropdown.value;
+  flexContainer.style.alignContent = alignContentDropdown.value;
+
+  // Add event listeners to the dropdowns
+  justifyContentDropdown.addEventListener('change', (event) => {
+    flexContainer.style.justifyContent = event.target.value;
+  });
+
+  flexWrapDropdown.addEventListener('change', (event) => {
+    flexContainer.style.flexWrap = event.target.value;
+  });
+
+  alignItemsDropdown.addEventListener('change', (event) => {
+    flexContainer.style.alignItems = event.target.value;
+  });
+
+  alignContentDropdown.addEventListener('change', (event) => {
+    flexContainer.style.alignContent = event.target.value;
+  });
+</script>
+
+</html>
